@@ -22,10 +22,6 @@ function init() {
   xScale = canvas.width / (xMax - xMin);
   yScale = canvas.height / (yMax - yMin);
 
-  ctx.fillStyle = "orange";
-  ctx.fillRect(tx(20), ty(20), 4, 4);
-
-  print_line(10, 10, 50, 50);
   print_x_axis();
   print_y_axis();
 
