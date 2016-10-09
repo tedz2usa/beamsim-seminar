@@ -17,6 +17,7 @@ function init() {
   yMax = 80;
 
   xScale = canvas.width / (xMax - xMin);
+  yScale = canvas.height / (yMax - yMin);
 
   ctx.fillStyle = "orange";
   ctx.fillRect(tx(20), ty(20), 4, 4);
@@ -44,11 +45,11 @@ function print_line(x1, y1, x2, y2) {
 }
 
 function tx(x) {
-  return xScale*x - xMin;
+  return xScale*(x - xMin);
 }
 
 function ty(y) {
-  return canvas.height - y + yMin;
+  return canvas.height - ( y - yMin)*yScale;
 }
 
 function print_squares(start, end) {
