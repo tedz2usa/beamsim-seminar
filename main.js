@@ -13,7 +13,7 @@ function init() {
   ctx = canvas.getContext("2d");
 
   xMin = -40;
-  xMax = 200;
+  xMax = 40;
   xGrid = 5;
   yMin = -80;
   yMax = 80;
@@ -25,6 +25,9 @@ function init() {
   print_x_axis();
   print_y_axis();
 
+  for(var x = xMin; x <= xMax; x+=0.1) {
+    ctx.fillRect(tx(x), ty(x*x), 1, 1);
+  }
 
 }
 
