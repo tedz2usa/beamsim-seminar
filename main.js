@@ -4,16 +4,19 @@ window.onload = init;
 
 var canvas, ctx;
 var xMin, xMax, yMin, yMax;
+var xScale, yScale;
 
 function init() {
 
-  xMin = -40;
-  yMin = -40;
-
   canvas = document.getElementById("myCanvas");
   ctx = canvas.getContext("2d");
-  log(canvas);
-  log(ctx);
+
+  xMin = -40;
+  xMax = 200;
+  yMin = -80;
+  yMax = 80;
+
+  xScale = canvas.width / (xMax - xMin);
 
   ctx.fillStyle = "orange";
   ctx.fillRect(tx(20), ty(20), 4, 4);
@@ -26,11 +29,11 @@ function init() {
 }
 
 function print_x_axis() {
-  print_line(tx(-20), ty(0), tx(20), ty(0));
+  print_line(tx(xMin), ty(0), tx(xMax), ty(0));
 }
 
 function print_y_axis() {
-  print_line(tx(0), ty(-20), tx(0), ty(20));
+  print_line(tx(0), ty(yMin), tx(0), ty(yMax));
 }
 
 function print_line(x1, y1, x2, y2) {
@@ -41,7 +44,7 @@ function print_line(x1, y1, x2, y2) {
 }
 
 function tx(x) {
-  return x - xMin;
+  return xScale*x - xMin;
 }
 
 function ty(y) {
