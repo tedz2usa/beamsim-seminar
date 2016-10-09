@@ -3,8 +3,12 @@ var log = console.log.bind(console);
 window.onload = init;
 
 var canvas, ctx;
+var xMin, xMax, yMin, yMax;
 
 function init() {
+
+  xMin = -40;
+  yMin = -40;
 
   canvas = document.getElementById("myCanvas");
   ctx = canvas.getContext("2d");
@@ -17,6 +21,8 @@ function init() {
   print_line(10, 10, 50, 50);
   print_x_axis();
   print_y_axis();
+
+
 }
 
 function print_x_axis() {
@@ -35,11 +41,11 @@ function print_line(x1, y1, x2, y2) {
 }
 
 function tx(x) {
-  return x;
+  return x - xMin;
 }
 
 function ty(y) {
-  return canvas.height - y;
+  return canvas.height - y + yMin;
 }
 
 function print_squares(start, end) {
